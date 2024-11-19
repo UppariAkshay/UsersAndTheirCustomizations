@@ -1,13 +1,14 @@
 import './index.css'
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const UserCard = props => {
     const {userDetails} = props
 
     return (
         <li className="userCardLI">
-            <p>Username: {userDetails.name}</p>
-            <p>From: {userDetails.address.city}</p>
-            <button>Delete</button>
+            <p><span>Username: </span>{userDetails.name}</p>
+            <p><span>From: </span>{userDetails.address.city}</p>
+            <button className='btn btn-primary'>Delete</button>
         </li>
     )
 }
