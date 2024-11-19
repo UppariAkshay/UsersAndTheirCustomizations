@@ -1,19 +1,40 @@
 import NavBar from "../NavBar";
-import {Component, useDeferredValue} from 'react'
+import {Component} from 'react'
+import UserCard from "../UserCard";
+import './index.css'
 
 
-//class component is used to fetching GET request to get all users using Life cycle methods like ComponentDidMount()
 class Home extends Component
 {
-    state = {}
+    state = {listOfAllUser: []}
+
+    componentDidMount()
+    {
+        this.fetchAllUsers()
+    }
+
+    fetchAllUsers = async () => {
+        const getAllUsersUrl = 'https://jsonplaceholder.typicode.com/users'
+
+        const response = await fetch(getAllUsersUrl)
+        const respnseInJson = await response.json()
+
+        this.setState({listOfAllUser: respnseInJson})
+    }
 
     render()
     {
+        const {listOfAllUser} = this.state
+
         return (
             <div>
                 <NavBar />
+
                 <h1>This is Home</h1>
-                <h1>Here all users will be displayed and can delete a specifc user</h1>
+                
+                <ul>
+                    {listOfAllUser.map(eachUser => <UserCard userDetails={eachUser} />)}
+                </ul>
             </div>
         )
     }
