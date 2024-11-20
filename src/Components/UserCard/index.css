@@ -16,3 +16,9 @@ span{
 {
     color: yellow;
 }
+
+.Linkcomponent
+{
+    text-decoration: none;
+    color: black;
+}

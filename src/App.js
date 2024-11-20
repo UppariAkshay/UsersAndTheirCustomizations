@@ -1,8 +1,8 @@
 import './App.css';
 import Home from './Components/Home'
 import {BrowserRouter, Route, Routes} from 'react-router-dom'
-import AllDetailsAboutUser from './Components/AllDetailsAboutUser'
 import AddNewUser from './Components/AddNewUser'
+import AllDetailsAboutUser from './Components/AllDetailsAboutUser';
 
 const App = () => <BrowserRouter>
   <Routes>
